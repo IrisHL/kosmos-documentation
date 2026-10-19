@@ -36,13 +36,13 @@ Data storage
    * - /projects
      - ±350TB
      - Slack
-     - Not by default. Periodic snapshots can be requested.
+     - No snapshots.
      - Only within RHPC network (rhpc.nki.nl)
      - Contains project-specific data
    * - /home/<user>
-     - 100GB per user
+     - 150GB per user
      - Slack
-     - Yes. Daily snapshots for one week, monthly snapshots for one year.
+     - Snapshots only (not a backup).
      - Only within RHPC network (rhpc.nki.nl)
      - Contains user-specific data
    * - Surf Lisa storage

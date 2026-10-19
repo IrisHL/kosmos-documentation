@@ -31,9 +31,11 @@ These personal workspaces are created for each user by default and are accessibl
     ``/home/<user>``
 
 **Folder setup**:
-Created by default for each user with a limit of 150G. Access is limited to the user only. Daily and monthly snapshots are available at:
+Created by default for each user with a limit of 150G. Access is limited to the user only. Daily, weekly and monthly snapshots are available at:
 
     ``/home/<user>/.zfs/snapshot``
+
+To recover an accidentally changed or deleted file, copy the earlier version from ``~/.zfs/snapshot/<snapshot name>/`` back into your home folder. Snapshots are read-only. Note that your files and their snapshots together count towards a 300G limit: if you change or delete many large files, the snapshots grow and less space is left for new files until old snapshots are pruned. Snapshots are stored on the same hardware as your files, so they are not a backup.
 
 **Examples of appropriate contents**:
 

@@ -35,22 +35,16 @@ When a node is in drain, you can use the following commands to get it out of dra
 
 Homefolder is exceeding quota
 ------------------------------
-Homefolder has 300G for homefolder and snapshots. It could be that
-the snapshots are taking up too much space. You can see snapshots
-on rhea by running the following command:
+A home folder has 150G for live files and 300G for live files and
+snapshots together. It could be that the snapshots are taking up too
+much space. Check the ``USEDSNAP`` column on rhea:
 
 .. code-block:: bash
 
-    zfs list -t snapshot project-pool/network_homes/<username>
+    zfs list -o space -r project-pool/network_homes
 
-You can prune snapshots by using this code:
-:ref:'https://github.com/bahamas10/zfs-prune-snapshots/blob/master/zfs-prune-snapshots<https://github.com/bahamas10/zfs-prune-snapshots/blob/master/zfs-prune-snapshots>'
-
-To delete snapshots starting with monthly, older tahn 6 months in
-``project-pool/network_homes``, you can run the following command:
-.. code-block:: bash
-
-    zfs-prune-snapshots -p monthly 6M project-pool/network_homes
+See :doc:`zfs_snapshots` for how to prune old snapshots or remove
+individual ones.
 
 Use ``zfs send`` and ``zfs receive`` to move the snapshots
 to another location. For example:
